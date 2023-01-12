@@ -1,0 +1,203 @@
+@charset "UTF-8";
+@import url("https://fonts.googleapis.com/css2?family=Tomorrow:wght@300;400&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Comic+Neue:wght@300;400;700&family=Inter:wght@200;300;400;500;600;700;800;900&display=swap");
+.layouts > div {
+  position: fixed;
+  box-sizing: border-box;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  margin: auto;
+  padding: 24px;
+  background-image: linear-gradient(to top, white, rgba(255, 255, 255, 0.8));
+  background-origin: border-box;
+  box-shadow: 0px 0px 16px black;
+  width: -webkit-fit-content;
+  width: -moz-fit-content;
+  width: fit-content;
+  height: -webkit-fit-content;
+  height: -moz-fit-content;
+  height: fit-content;
+  border-radius: 12px;
+  border: rgba(0, 0, 0, 0.25) solid 4px;
+  transition: 0.32s;
+}
+.layouts > div:not(.focus) {
+  pointer-events: none;
+  opacity: 0.75;
+  transform: translateY(16px);
+}
+.layouts > div .focus {
+  z-index: 999;
+}
+.layouts > div:not(.show) {
+  opacity: 0;
+  pointer-events: none;
+  transform: translateY(16px);
+}
+
+.dialog {
+  background-image: linear-gradient(to top, white, rgba(255, 255, 255, 0.8));
+  font-family: Comic Neue, sans-serif;
+  width: 100%;
+  padding: 16px;
+  border-top: rgba(0, 0, 0, 0.25) solid 4px;
+  box-sizing: border-box;
+  position: fixed;
+  bottom: 0;
+  height: 200px;
+  transition: 0.5s;
+  box-shadow: 0px 16px 16px 16px transparent;
+  -webkit-backdrop-filter: blur(5px);
+          backdrop-filter: blur(5px);
+  cursor: pointer;
+}
+.dialog.writing {
+  cursor: not-allowed;
+}
+.dialog:not(.writing) .text::after {
+  content: "▼";
+  display: inline-block;
+  margin-left: 8px;
+  font-size: 16px;
+  font-weight: 700;
+  -webkit-animation: opacity-wait 0.2s, dialog-char 0.2s 0.2s, dialog-arrow infinite alternate 0.5s 0.4s;
+          animation: opacity-wait 0.2s, dialog-char 0.2s 0.2s, dialog-arrow infinite alternate 0.5s 0.4s;
+}
+.dialog.open {
+  box-shadow: 0px 16px 16px 16px black;
+}
+.dialog:not(.open) {
+  transform: translateY(200px);
+}
+.dialog > .container {
+  display: flex;
+  margin: auto;
+  width: 600px;
+}
+.dialog > .container > img {
+  height: 128px;
+  pointer-events: none;
+}
+.dialog > .container > .text {
+  font-size: 24px;
+  -webkit-user-select: none;
+     -moz-user-select: none;
+      -ms-user-select: none;
+          user-select: none;
+  margin-left: 32px;
+}
+.dialog > .container span {
+  -webkit-animation: dialog-char 0.16s;
+          animation: dialog-char 0.16s;
+  display: inline-block;
+  white-space: pre;
+}
+@media (max-width: 600px) {
+  .dialog > .container {
+    width: 100%;
+  }
+  .dialog > .container > img {
+    height: 64px;
+  }
+  .dialog > .container > .text {
+    margin-left: 16px;
+    font-size: 16px;
+    font-weight: 700;
+  }
+}
+
+@-webkit-keyframes dialog-arrow {
+  to {
+    transform: translateY(4px);
+  }
+}
+
+@keyframes dialog-arrow {
+  to {
+    transform: translateY(4px);
+  }
+}
+@-webkit-keyframes opacity-wait {
+  from, to {
+    opacity: 0;
+  }
+}
+@keyframes opacity-wait {
+  from, to {
+    opacity: 0;
+  }
+}
+@-webkit-keyframes dialog-char {
+  from {
+    transform: translateY(-12px);
+    opacity: 0.5;
+  }
+  50% {
+    transform: translateY(4px) scaleY(0.7);
+  }
+}
+@keyframes dialog-char {
+  from {
+    transform: translateY(-12px);
+    opacity: 0.5;
+  }
+  50% {
+    transform: translateY(4px) scaleY(0.7);
+  }
+}
+html, body {
+  height: 100%;
+}
+
+body {
+  font-size: 16px;
+  margin: 0;
+  background-image: radial-gradient(gray, rgb(99, 99, 99));
+  font-family: Inter, sans-serif;
+  font-size: 14px;
+}
+
+.loading-ring {
+  height: 16px;
+  -webkit-animation: rotate 0.5s infinite linear;
+          animation: rotate 0.5s infinite linear;
+}
+
+@-webkit-keyframes rotate {
+  to {
+    transform: rotate(-360deg);
+  }
+}
+
+@keyframes rotate {
+  to {
+    transform: rotate(-360deg);
+  }
+}
+button {
+  background-image: linear-gradient(rgb(221, 221, 221), rgb(189, 189, 189));
+  background-origin: border-box;
+  border-radius: 8px;
+  color: rgb(0, 0, 0);
+  font-weight: 600;
+  letter-spacing: 0.042em;
+  letter-spacing: 0.5px;
+  font-family: inherit;
+  font-size: inherit;
+  padding: 8px 16px;
+  border: rgba(0, 0, 0, 0.25) solid 1px;
+  box-shadow: 0px 1px 2px rgba(0, 0, 0, 0.5), 0px -1px 2px rgba(255, 255, 255, 0.5);
+  cursor: pointer;
+  transition: 0.1s;
+  margin: 2px;
+}
+button:hover {
+  filter: brightness(0.95);
+  transition: none;
+}
+button:active {
+  filter: brightness(0.9);
+  transition: none;
+}/*# sourceMappingURL=style.css.map */

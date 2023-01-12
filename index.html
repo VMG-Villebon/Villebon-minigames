@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Villebon Mini-Games</title>
+    <script type="module" src="js/main.js"></script>
+    <link rel="stylesheet" href="scss/style.css">
+</head>
+<body>
+    <div class="layouts">
+        <div id="loading" class="">
+            <img src="img/loading_ring.svg" class="loading-ring">
+        </div>
+        <div id="list" class="list">
+            <img src="img/logo.svg">
+
+            <h2>Available mini-games</h2>
+            <div class="unlocked">
+                <div>
+                    <div class="thumbnail">
+                        Thumbnail
+                    </div>
+                    <div class="title">
+                        Goal
+                    </div>
+                    <div class="description">
+                        Desc
+                    </div>
+                </div>
+            </div>
+
+            <h2>Goals</h2>
+            <div class="goals">
+                <div>
+                    <div class="thumbnail">
+                        Thumbnail
+                    </div>
+                    <div class="title">
+                        Goal
+                    </div>
+                    <div class="description">
+                        Desc
+                    </div>
+                </div>
+            </div>
+
+            <h2>Other</h2>
+            <div class="other">
+                <button>Settings</button>
+                <button>About this website</button>
+            </div>
+
+            <h2>debug</h2>
+            <div class="debug">
+                <button onclick="dialogtest()">Dialog test</button>
+                <button onclick="lctest()">Layout controller test</button>
+            </div>
+        </div>
+    </div>
+    <div class="dialog">
+        <div class="container">
+            <img src="img/idle.png">
+            <div class="text">
+                Placeholder.
+            </div>
+        </div>
+    </div>
+</body>
+</html>
